@@ -1,0 +1,19 @@
+<ng-container *ngIf="users.length  > 0 else noDataFound">
+  <table id="users">
+    <thead>
+      <th>Name</th>
+      <th>Email</th>
+    </thead>
+    <tbody *ngFor= "let user of users">
+      <tr (click)="onSelect(user)" *ngIf="user.email != 'Bombasto'">
+        <td>{{user.name | titlecase}}</td>
+        <td>{{ user.email }}</td>
+      </tr>
+    </tbody>
+  </table>
+</ng-container>
+
+
+<ng-template #noDataFound>
+"No Users found"
+</ng-template>
